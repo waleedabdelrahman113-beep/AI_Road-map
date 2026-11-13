@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>م. وليد محمود عبدالرحمن | مهندس مدني ومدير أعمال بقطاع التوسع الأفقي والمشروعات - وزارة الموارد المائية والري</title>
+    <title>Eng. Waleed Mahmoud Abdelrahman | Civil & Structural Engineer - Official CV</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        eco: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        water: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                        },
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857',
                         }
                     }
                 }
@@ -33,476 +42,466 @@
     </script>
     <style>
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .tab-panel { display: block !important; margin-bottom: 1.5rem; }
+            body { background-color: white; }
+            .cv-container { box-shadow: none !important; border: none !important; margin: 0 !important; max-width: 100% !important; }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-eco-600 selection:text-white">
+<body class="text-slate-800 antialiased selection:bg-water-600 selection:text-white py-4 sm:py-8 px-2 sm:px-6">
 
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo / Name -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-eco-600 to-emerald-800 flex items-center justify-center text-white shadow-md shadow-eco-600/20 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-water text-lg"></i>
+    <!-- Top Action Bar (Print & Photo Upload Helper) -->
+    <div class="max-w-5xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3 no-print">
+        <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-200">
+            <i class="fa-solid fa-circle-info text-water-600"></i>
+            <span>Interactive Web CV — Eng. Waleed Mahmoud Abdelrahman</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <label for="photo-upload" class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-water-700 hover:bg-water-800 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all">
+                <i class="fa-solid fa-camera"></i>
+                <span>Change Photo</span>
+            </label>
+            <input type="file" id="photo-upload" accept="image/*" class="hidden" onchange="previewProfileImage(event)">
+            
+            <a href="https://www.linkedin.com/in/waleed-mahmoud-abd-el-rahman-a0b307154/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-700 hover:bg-sky-800 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+
+            <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all">
+                <i class="fa-solid fa-print"></i>
+                <span>Print / PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CV CONTAINER -->
+    <div class="cv-container max-w-5xl mx-auto bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+
+        <!-- TOP EGYPT FLAG BANNER & OFFICIAL HEADER -->
+        <div class="bg-navy-950 text-white relative">
+            <!-- Egypt Flag Tricolor Strip at the very top -->
+            <div class="h-2 w-full flex">
+                <div class="w-1/3 bg-[#CE1126]"></div>
+                <div class="w-1/3 bg-white"></div>
+                <div class="w-1/3 bg-black"></div>
+            </div>
+
+            <!-- Official Egypt Flag Badge & Ministry Affiliation -->
+            <div class="px-6 sm:px-10 pt-5 pb-3 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-7 rounded shadow-md overflow-hidden border border-white/20 shrink-0" title="Arab Republic of Egypt">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="200" fill="#CE1126"/>
+                            <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="900" height="200" fill="#000000"/>
+                            <g transform="translate(450, 300) scale(0.85)" fill="#C09300">
+                                <path d="M-45,-65 L-15,-50 L0,-80 L15,-50 L45,-65 L55,-15 L35,35 L15,65 L0,50 L-15,65 L-35,35 L-55,-15 Z"/>
+                                <rect x="-18" y="-30" width="36" height="55" rx="4" fill="#FFFFFF" stroke="#C09300" stroke-width="4"/>
+                                <line x1="-6" y1="-30" x2="-6" y2="25" stroke="#C09300" stroke-width="3"/>
+                                <line x1="6" y1="-30" x2="6" y2="25" stroke="#C09300" stroke-width="3"/>
+                                <rect x="-35" y="62" width="70" height="14" rx="3" fill="#C09300"/>
+                            </g>
+                        </svg>
                     </div>
                     <div>
-                        <span class="block font-black text-lg text-slate-900 leading-tight">م. وليد محمود عبدالرحمن</span>
-                        <span class="block text-xs font-semibold text-eco-700 tracking-wider">وزارة الموارد المائية والري | التوسع الأفقي</span>
+                        <span class="block text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400">Arab Republic of Egypt</span>
+                        <span class="block text-xs sm:text-sm font-medium text-slate-300">Ministry of Water Resources & Irrigation — Projects & Horizontal Expansion Sector</span>
                     </div>
-                </a>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-slate-200 border border-white/15">
+                    Official CV & Portfolio
+                </span>
+            </div>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-600">
-                    <a href="#about" class="hover:text-eco-600 transition-colors">عن المهندس</a>
-                    <a href="#climate" class="hover:text-eco-600 transition-colors">الأمن المائي والمناخ</a>
-                    <a href="#experience" class="hover:text-eco-600 transition-colors">المسيرة والخبرات</a>
-                    <a href="#projects" class="hover:text-eco-600 transition-colors">مشروعات القطاع</a>
-                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-eco-600 text-white font-bold shadow-md shadow-eco-600/20 hover:bg-eco-700 transition-all">تواصل معي</a>
-                </nav>
+            <!-- Profile Header: Personal Photo Slot + Name + Title + Contact Info -->
+            <div class="p-6 sm:p-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+                <!-- Personal Photo Container -->
+                <div class="relative group shrink-0">
+                    <div class="w-36 h-44 sm:w-40 sm:h-48 rounded-2xl bg-slate-800 border-4 border-white/20 shadow-2xl overflow-hidden flex flex-col items-center justify-center relative">
+                        <img id="profile-photo-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="Eng. Waleed Mahmoud Abdelrahman" class="w-full h-full object-cover object-top">
+                        <label for="photo-upload" class="no-print absolute inset-0 bg-navy-950/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-2 cursor-pointer">
+                            <i class="fa-solid fa-cloud-arrow-up text-2xl text-water-400 mb-1"></i>
+                            <span class="text-xs font-bold text-white">Upload Your Personal Photo</span>
+                        </label>
+                    </div>
+                    <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-md whitespace-nowrap">
+                        Civil & Structural Engineer
+                    </div>
+                </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="menu-btn" class="md:hidden text-slate-700 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                <!-- Name, Role & Contact Grid -->
+                <div class="flex-1 text-center md:text-left space-y-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                            Eng. Waleed Mahmoud Abdelrahman Abdelmgeed
+                        </h1>
+                        <p class="text-base sm:text-lg font-semibold text-sky-400 mt-1">
+                            Civil Engineer | Structural Engineer | Works Director
+                        </p>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-2xl">
+                        B.Sc. in Civil Engineering (Assiut University, 2013). Over 12 years of extensive hands-on experience in reinforced concrete structures, hydraulic and water resources projects, flood protection dams, canal rehabilitation, and major infrastructure management across Egypt and South Sudan.
+                    </p>
+
+                    <!-- Contact Badges -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 pt-2 text-xs sm:text-sm text-slate-200">
+                        <div class="flex items-center justify-center md:justify-start gap-2.5 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-location-dot text-sky-400"></i>
+                            <span>Aswan / Esna, Egypt</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-2.5 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-envelope text-sky-400"></i>
+                            <span class="truncate">waleedabdelrahman113@gmail.com</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-2.5 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-phone text-sky-400"></i>
+                            <span>+20 115 742 4266</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE CV TABS NAVIGATION -->
+        <div class="bg-slate-100 border-b border-slate-200 px-4 sm:px-8 pt-3 no-print overflow-x-auto">
+            <nav class="flex space-x-1 sm:space-x-2 min-w-max" aria-label="CV Sections">
+                <button onclick="switchCvTab('summary')" id="tab-btn-summary" class="cv-tab-btn px-4 py-3 text-xs sm:text-sm font-bold rounded-t-xl border-t-2 border-x border-transparent bg-white text-water-700 border-water-600 shadow-sm flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>1. Profile & Bio</span>
                 </button>
-            </div>
+                <button onclick="switchCvTab('experience')" id="tab-btn-experience" class="cv-tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-t-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>2. Work Experience</span>
+                </button>
+                <button onclick="switchCvTab('projects')" id="tab-btn-projects" class="cv-tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-t-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-bridge-water"></i>
+                    <span>3. Major Projects & Media</span>
+                </button>
+                <button onclick="switchCvTab('education')" id="tab-btn-education" class="cv-tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-t-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>4. Education & Training</span>
+                </button>
+                <button onclick="switchCvTab('skills')" id="tab-btn-skills" class="cv-tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-t-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>5. Skills & Contribution</span>
+                </button>
+            </nav>
         </div>
 
-        <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 font-semibold shadow-xl">
-            <a href="#about" class="block py-2 text-slate-700 hover:text-eco-600">عن المهندس</a>
-            <a href="#climate" class="block py-2 text-slate-700 hover:text-eco-600">الأمن المائي والمناخ</a>
-            <a href="#experience" class="block py-2 text-slate-700 hover:text-eco-600">المسيرة والخبرات</a>
-            <a href="#projects" class="block py-2 text-slate-700 hover:text-eco-600">مشروعات القطاع</a>
-            <a href="#contact" class="block text-center py-3 rounded-xl bg-eco-600 text-white shadow">تواصل معي</a>
-        </div>
-    </header>
+        <!-- TAB CONTENT PANELS -->
+        <div class="p-6 sm:p-10 min-h-[420px]">
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-eco-50 via-white to-slate-50 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#16a34a_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Text Content -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-eco-100 text-eco-800 text-sm font-bold border border-eco-200">
-                        <i class="fa-solid fa-droplet text-eco-600"></i> وزارة الموارد المائية والري - جمهورية مصر العربية
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
-                        المهندس/ <span class="text-eco-600">وليد محمود عبدالرحمن</span>
-                    </h1>
-                    <p class="text-xl sm:text-2xl font-bold text-slate-700">
-                        مهندس مدني وإنشائي | مدير أعمال بقطاع التوسع الأفقي والمشروعات
-                    </p>
-                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        إدارة وتنفيذ أعمال البنية التحتية والمحطات الإنشائية والترع الناقلة للمياه، وتعظيم الاستفادة من الموارد المائية وحمايتها لمواجهة التغيرات المناخية وتحقيق استدامة مشروعات التوسع الزراعي والعمراني.
-                    </p>
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#contact" class="px-8 py-4 rounded-xl bg-eco-600 text-white font-bold shadow-lg shadow-eco-600/30 hover:bg-eco-700 transition-all flex items-center gap-3">
-                            <span>تواصل مهني</span>
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </a>
-                        <a href="#climate" class="px-8 py-4 rounded-xl bg-white text-slate-700 font-bold border border-slate-300 hover:bg-slate-100 transition-all flex items-center gap-3">
-                            <i class="fa-solid fa-compass-drafting text-eco-600"></i>
-                            <span>استكشف مشروعات القطاع</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero Visual / Card -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-eco-600 to-emerald-400 opacity-30 blur-xl"></div>
-                        <div class="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100 space-y-6">
-                            <div class="flex items-center gap-4 border-b border-slate-100 pb-6">
-                                <div class="w-16 h-16 rounded-2xl bg-eco-50 border border-eco-200 flex items-center justify-center text-eco-700 text-2xl font-bold">
-                                    <i class="fa-solid fa-water border-eco-600"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-slate-900">قطاع التوسع الأفقي</h3>
-                                    <p class="text-sm text-slate-500">إدارة الأعمال الإنشائية والمائية الكبرى</p>
-                                </div>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between text-sm">
-                                    <span class="text-slate-600 font-semibold"><i class="fa-solid fa-check-circle text-eco-600 ml-2"></i>إدارة أعمال المشروعات</span>
-                                    <span class="font-bold text-slate-900">خبرة قيادية</span>
-                                </div>
-                                <div class="flex items-center justify-between text-sm">
-                                    <span class="text-slate-600 font-semibold"><i class="fa-solid fa-check-circle text-eco-600 ml-2"></i>التصميم والتمشية الإنشائية</span>
-                                    <span class="font-bold text-slate-900">تخصص مدني</span>
-                                </div>
-                                <div class="flex items-center justify-between text-sm">
-                                    <span class="text-slate-600 font-semibold"><i class="fa-solid fa-check-circle text-eco-600 ml-2"></i>التكيف مع التغير المناخي</span>
-                                    <span class="font-bold text-slate-900">أمن مائي مستدام</span>
-                                </div>
-                            </div>
-                            <div class="pt-2">
-                                <div class="p-4 rounded-xl bg-eco-50 border border-eco-100 text-xs text-eco-900 leading-relaxed font-medium">
-                                    "حماية الموارد المائية وتوفير مياه الري لمشروعات التوسع الأفقي هو الشريان الحيوي لتأمين مستقبل الغذاء والتصدّي لآثار التغير المناخي."
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Climate & Water Resources Section -->
-    <section id="climate" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-eco-600 font-bold uppercase tracking-wider text-sm">التحدي الإستراتيجي</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">إدارة المياه والتوسع الأفقي في ظل التغيرات المناخية</h2>
-                <p class="text-slate-600 text-lg">
-                    دور الهندسة المدنية والمائية بوزارة الموارد المائية والري في تعظيم كفاءة استخدام المياه واستصلاح الأراضي الجديدة.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-eco-200 transition-all hover:shadow-xl group">
-                    <div class="w-14 h-14 rounded-2xl bg-eco-100 text-eco-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-eco-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-faucet-drip"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">مشروعات نقل وتوصيل المياه</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        الإشراف على إنشاء الترع الرئيسية والمساقي والمآخذ الكبرى والتسحيب لضمان وصول المياه للمناطق المستصلحة بأقل نسبة هدر وبأعلى كفاءة نقل.
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-eco-200 transition-all hover:shadow-xl group">
-                    <div class="w-14 h-14 rounded-2xl bg-eco-100 text-eco-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-eco-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-bridge-water"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">المنشآت المائية والخرسانية</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        متابعة وتصميم وتنفيذ المنشآت الهيدروليكية من قناطر، كباري، وسحارات، ومحطات رفع، بمواصفات إنشائية قادرة على الصمود أمام التغيرات الجوية المتطرفة.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-eco-200 transition-all hover:shadow-xl group">
-                    <div class="w-14 h-14 rounded-2xl bg-eco-100 text-eco-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-eco-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-cloud-showers-water"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">الحماية من أخطار السيول والفيضانات</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        إدارة الأعمال والبحيرات الصناعية وبحيرات الأكسدة ومخرات السيول لحماية الأرواح والمنشآت وتخزين مياه الأمطار للاستفادة منها.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About & Expertise Section -->
-    <section id="about" class="py-20 bg-slate-50 border-y border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-eco-600 font-bold uppercase tracking-wider text-sm">السيرة والمسيرة</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900">خبرة متخصصة في قطاع المشروعات المائية والتوسع الأفقي</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        أعمل بصفتي **مدير أعمال بقطاع التوسع الأفقي والمشروعات بوزارة الموارد المائية والري**، حيث يتضمن نطاق عملي التخطيط التنفيذي والمتابعة الميدانية وإدارة عقود المشروعات الإنشائية والمائية القومية، لضمان جودة التنفيذ والالتزام بالجداول الزمنية المعتمَدة.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-2">
-                        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                            <span class="block text-2xl font-black text-eco-600 mb-1">الري والموارد المائية</span>
-                            <span class="text-sm font-semibold text-slate-600">قطاع التوسع الأفقي</span>
-                        </div>
-                        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                            <span class="block text-2xl font-black text-eco-600 mb-1">إدارة الأعمال</span>
-                            <span class="text-sm font-semibold text-slate-600">المشروعات الإنشائية الكبرى</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 space-y-6">
-                        <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">المهارات والكفاءات المهنية</h3>
-                        
-                        <!-- Skill Bar 1 -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between font-bold text-sm">
-                                <span class="text-slate-700">إدارة أعمال عقود ومشروعات الري والتوسع الأفقي</span>
-                                <span class="text-eco-600">98%</span>
-                            </div>
-                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="bg-eco-600 h-full rounded-full" style="width: 98%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Bar 2 -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between font-bold text-sm">
-                                <span class="text-slate-700">التصميم والمتابعة الإنشائية للمنشآت المائية (قناطر / كباري / سحارات)</span>
-                                <span class="text-eco-600">95%</span>
-                            </div>
-                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="bg-eco-600 h-full rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Bar 3 -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between font-bold text-sm">
-                                <span class="text-slate-700">خطط التكيف مع الظواهر المناخية وحماية الموارد المائية</span>
-                                <span class="text-eco-600">94%</span>
-                            </div>
-                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="bg-eco-600 h-full rounded-full" style="width: 94%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Bar 4 -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between font-bold text-sm">
-                                <span class="text-slate-700">ضبط الجودة ومطابقة المواصفات الفنية المائية</span>
-                                <span class="text-eco-600">92%</span>
-                            </div>
-                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="bg-eco-600 h-full rounded-full" style="width: 92%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Timeline Section -->
-    <section id="experience" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-eco-600 font-bold uppercase tracking-wider text-sm">المسيرة الوظيفية</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">خبرات تنفيذية بوزارة الموارد المائية والري</h2>
-                <p class="text-slate-600 text-lg">المشاركة القيادية والهندسية في إعداد وتنفيذ مشروعات الري الحديث والتوسع الأفقي.</p>
-            </div>
-
-            <div class="space-y-8 relative before:absolute before:inset-0 before:right-7 before:w-0.5 before:bg-eco-200">
-                <!-- Item 1 -->
-                <div class="relative flex items-start gap-6 mr-4 sm:mr-0">
-                    <div class="absolute -right-3.5 w-7 h-7 rounded-full bg-eco-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
-                        <i class="fa-solid fa-water"></i>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm w-full mr-8">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                            <h3 class="text-xl font-bold text-slate-900">مدير أعمال بقطاع التوسع الأفقي والمشروعات</h3>
-                            <span class="px-3 py-1 rounded-full bg-eco-100 text-eco-800 text-xs font-bold">وزارة الموارد المائية والري</span>
-                        </div>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            إدارة وتنسيق العمليات الإنشائية والهندسية لمشروعات التوسع الأفقي، متابعة خطط التنسيق مع الاستشاريين والمقاولين، والمشاركة في دراسات القناطر والمسارات المائية لخدمة استصلاح الأراضي.
+            <!-- TAB 1: PROFILE & SUMMARY -->
+            <div id="panel-summary" class="tab-panel fade-in space-y-8">
+                <div>
+                    <h2 class="text-xl font-extrabold text-navy-900 border-b-2 border-water-600 pb-2 inline-block mb-4">
+                        Professional Summary & Objective
+                    </h2>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 text-slate-700 leading-relaxed space-y-3 text-sm sm:text-base">
+                        <p>
+                            Born in Aswan on February 1, 1991. Dedicated <strong>Civil & Structural Engineer</strong> with extensive experience in executing and managing major national infrastructure, water resources, flood protection structures, and residential real estate packages.
                         </p>
+                        <p>
+                            Proven ability to transform engineering blueprints into reality while strictly adhering to technical specifications, safety standards (HSE), and cost reduction methodologies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Featured Civil Engineering Imagery Header -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 relative group h-48">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f15d7?w=800&auto=format&fit=crop&q=80" alt="Civil Engineering Construction" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white font-bold text-sm">Major Construction Supervision & Structural Engineering</span>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 relative group h-48">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&auto=format&fit=crop&q=80" alt="Water Resources Infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white font-bold text-sm">Water Resources, Canals & Flood Protection Dams</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Information Quick Grid -->
+                <div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-4">Personal Details & Credentials</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-sm">
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold">Full Name</span>
+                            <span class="font-bold text-slate-900">Waleed Mahmoud Abdelrahman</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold">Date of Birth</span>
+                            <span class="font-bold text-slate-900">01 / 02 / 1991 (Aswan)</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold">Military Service</span>
+                            <span class="font-bold text-slate-900">Completed (1/12/2014) - Honored</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold">Syndicate</span>
+                            <span class="font-bold text-slate-900">Egyptian Engineers Syndicate (Aswan)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: WORK EXPERIENCE -->
+            <div id="panel-experience" class="tab-panel hidden fade-in space-y-6">
+                <h2 class="text-xl font-extrabold text-navy-900 border-b-2 border-water-600 pb-2 inline-block mb-2">
+                    Professional Work Experience (2011 – Present)
+                </h2>
+
+                <div class="relative border-l-2 border-water-600 ml-3 pl-6 space-y-8">
+                    <!-- Current & Recent Role -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-water-600 border-4 border-white shadow"></span>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-extrabold text-navy-900">Works Director & Senior Civil Engineer</h3>
+                                <span class="px-3 py-1 rounded-full bg-water-100 text-water-800 text-xs font-bold">2021 – Present</span>
+                            </div>
+                            <p class="text-sm font-bold text-emerald-700 mb-3">
+                                Ministry of Water Resources & Irrigation / Contracting Sector
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                                <li><strong>Aswan Flood Bank Covering (Kima Canal):</strong> Director of project to cover main Aswan flood bank (length 2.530 km) with a total cost of 396 million EGP (2023-2026).</li>
+                                <li><strong>Military Hospital Aswan:</strong> Project manager for raising the efficiency of the military hospital building at El-Dawlia Contracting Co. (2025).</li>
+                                <li><strong>Torrential Protection & Dams:</strong> Preparing and supervising implementation of flood mitigation works in Abu Al-Rish, Al-Shadida, Kalahin Valley (Qena - 975 million EGP), and Wadi Abadi.</li>
+                                <li><strong>National Canal Lining Initiative:</strong> Supervising civil engineering rehabilitation of tired canals under President El-Sisi's "Decent Life" initiative in Aswan Center (100M EGP & 24.96M EGP).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- South Sudan / Nile Water Sector Role -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-water-600 border-4 border-white shadow"></span>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-extrabold text-navy-900">Civil Head Station Engineer — South Sudan</h3>
+                                <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">2019 – 2021</span>
+                            </div>
+                            <p class="text-sm font-bold text-water-700 mb-3">
+                                Ministry of Water Resources & Irrigation - Nile Water Sector - Technical Cooperation Projects in SOUTH SUDAN
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                                <li>Head Station Engineer for <strong>Juba</strong> and <strong>Mongalla</strong> hydrological, discharge, and water level measurement stations on Bahr El-Gabal River.</li>
+                                <li>Supervised the execution of <strong>BOR hydrological station</strong> (Cost: 1.4 Million USD).</li>
+                                <li>Technical Office Engineer in Juba; expert in discharge measurements using ultrasonic ADCP equipment.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Earlier Experience -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></span>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">Civil & Infrastructure Site Engineer</h3>
+                                <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">2011 – 2018</span>
+                            </div>
+                            <p class="text-sm font-semibold text-slate-600 mb-3">
+                                High Dam Slant Rock Fixation (Sefi-Fontic), New Aswan Water Plant, Qustul Canal Lining, Box Culverts & Torrent Dams in Aswan.
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-slate-600 space-y-1.5">
+                                <li>Supervised rock bolting and stabilization of the western slant of the High Dam (13M EGP).</li>
+                                <li>Participated in foundations and shoring works for Heliopolis Hotel extensions in Cairo.</li>
+                                <li>Supervised numerous heavy-duty box culverts and torrential storage dams across Aswan valleys.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: MAJOR PROJECTS & MEDIA -->
+            <div id="panel-projects" class="tab-panel hidden fade-in space-y-6">
+                <h2 class="text-xl font-extrabold text-navy-900 border-b-2 border-water-600 pb-2 inline-block mb-2">
+                    Key Projects & Photographic Portfolio
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-3">
+                        <div class="h-40 rounded-xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=800&auto=format&fit=crop&q=80" alt="Bridge & Canal Coverings" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-navy-950/80 text-white text-xs px-2.5 py-1 rounded-md font-bold">396M EGP Project</span>
+                        </div>
+                        <h3 class="font-bold text-navy-900 text-base">Aswan Flood Bank Covering (Kima Canal)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Director of the 2.530 km box-culvert and canal covering project protecting against flood hazards and providing surface roadway utility.
+                        </p>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-3">
+                        <div class="h-40 rounded-xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&auto=format&fit=crop&q=80" alt="Canal Lining & Water Conservation" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-emerald-700 text-white text-xs px-2.5 py-1 rounded-md font-bold">National Initiative</span>
+                        </div>
+                        <h3 class="font-bold text-navy-900 text-base">National Canal Lining Project (Decent Life)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Supervising civil engineer for concrete and stone lining of irrigation waterways in Aswan to eliminate seepage and optimize agricultural distribution.
+                        </p>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-3">
+                        <div class="h-40 rounded-xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop&q=80" alt="Hydrological Stations South Sudan" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-water-700 text-white text-xs px-2.5 py-1 rounded-md font-bold">International Project</span>
+                        </div>
+                        <h3 class="font-bold text-navy-900 text-base">Juba, Mongalla & Bor Hydrological Stations (South Sudan)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Civil Head Station Engineer managing river discharge and water level measurements on Bahr El-Gabal River for the Nile Water Sector.
+                        </p>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-3">
+                        <div class="h-40 rounded-xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80" alt="Residential Real Estate & Finishes" class="w-full h-full object-cover">
+                            <span class="absolute bottom-2 left-2 bg-amber-700 text-white text-xs px-2.5 py-1 rounded-md font-bold">Turnkey Delivery</span>
+                        </div>
+                        <h3 class="font-bold text-navy-900 text-base">Residential Finishes & Real Estate Turnkey Packages</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Complete architectural design, civil modifications, structural masonry, MEP, finishes, and turnkey furnishing for residential apartments and buildings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: EDUCATION & TRAINING -->
+            <div id="panel-education" class="tab-panel hidden fade-in space-y-6">
+                <h2 class="text-xl font-extrabold text-navy-900 border-b-2 border-water-600 pb-2 inline-block mb-2">
+                    Education, Diplomas & Specialized Training
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-navy-900 text-white flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-navy-900">B.Sc. in Civil Engineering</h3>
+                        <p class="text-sm font-bold text-water-700">Assiut University — June 2013 (Grade: Good)</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>Graduation Project:</strong> Special Constructions (Habitation & Administrative Buildings) — Grade: Excellent.
+                        </p>
+                        <hr class="border-slate-200">
+                        <p class="text-xs text-slate-700"><strong>Postgraduate Studies:</strong></p>
+                        <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+                            <li>Pre-Masters in Civil Engineering (Advanced Concrete) - Aswan Univ., 2016 (Very Good).</li>
+                            <li>Diploma in Natural Resources (Water Resources) - Institute for African Research, Aswan Univ., 2022 (Very Good).</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-navy-900">Certifications & Governance Training</h3>
+                        <ul class="space-y-2 text-xs text-slate-700">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> Contractual Affairs Law No. 182 of 2018 (Levels 1 & 2 + TOT 1 & 2).</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> National Anti-Corruption Academy (Governance Level I).</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> Regional Training Center in Esna (Negotiation & Dispute Resolution).</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> PMP Professional Project Management Training.</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> YLY Initiative HR Committee Member (Ministry of Youth & Sports).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: SKILLS & CONTRIBUTION -->
+            <div id="panel-skills" class="tab-panel hidden fade-in space-y-8">
+                <h2 class="text-xl font-extrabold text-navy-900 border-b-2 border-water-600 pb-2 inline-block mb-2">
+                    Technical Skills & Professional Value Proposition
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-base font-bold text-navy-900 flex items-center gap-2">
+                            <i class="fa-solid fa-laptop-code text-water-600"></i>
+                            <span>Software & Technical Skills</span>
+                        </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg">قطاع المشروعات</span>
-                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg">التوسع الأفقي</span>
-                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg">إدارة الأعمال الفنية</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">AutoCAD 2D / 3D</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">SAP2000 / ETABS</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">Civil 3D</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">MS Project & Office</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">Ultrasonic ADCP Discharge</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">Cost & Waste Reduction</span>
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">HSE Standards</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Item 2 -->
-                <div class="relative flex items-start gap-6 mr-4 sm:mr-0">
-                    <div class="absolute -right-3.5 w-7 h-7 rounded-full bg-eco-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
-                        <i class="fa-solid fa-hard-hat"></i>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm w-full mr-8">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                            <h3 class="text-xl font-bold text-slate-900">مهندس مدني وإنشائي ومصمم منشآت ري</h3>
-                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">خبرات سابقة وميدانية</span>
-                        </div>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            الإشراف على إنشاء وتبشير الأعمال الإنشائية في المحطات والترع، ومراجعة التصميمات الهندسية لضمان كفاءتها الهيدروليكية والإنشائية ومقاومتها للتغيرات البيئية.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg">هندسة الري والإنشاءات</span>
-                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg">ضبط الجودة الميدانية</span>
+                    <div class="space-y-4">
+                        <h3 class="text-base font-bold text-navy-900 flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye text-emerald-600"></i>
+                            <span>What I Bring to Your Organization</span>
+                        </h3>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-sm text-slate-700 space-y-2.5">
+                            <p><strong>Ownership Mindset:</strong> I approach every project with genuine passion and rigorous follow-up.</p>
+                            <p><strong>Cost-Efficiency:</strong> Proven track record of reducing material waste by up to 15% through strict compliance.</p>
+                            <p><strong>Adaptability:</strong> Fast learner, capable of high productivity under stress and cross-functional leadership.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-slate-50 border-t border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-eco-600 font-bold uppercase tracking-wider text-sm">محاور العمل</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">مشروعات التوسع الأفقي والاستدامة المائية</h2>
-                <p class="text-slate-600 text-lg">أمثلة للأعمال والحلول الإنشائية والمائية المعنية بتنمية رقعة الأراضي الزراعية والتكيف المناخي.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="h-48 bg-gradient-to-br from-eco-700 to-emerald-900 flex items-center justify-center p-6 text-white relative">
-                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]"></div>
-                        <i class="fa-solid fa-water-ladder text-5xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-bold text-eco-600 uppercase tracking-wider">التوسع الأفقي</span>
-                        <h3 class="text-xl font-bold text-slate-900">إنشاء وتطوير شبكات المجاري المائية</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            تخطيط وتنفيذ الترع والقنوات الرئيسية لتوصيل مياه الري للمشروعات الزراعية الحديثة وفق أعلى معدلات الكفاءة المائية.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-6 text-white relative">
-                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]"></div>
-                        <i class="fa-solid fa-building-columns text-5xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-bold text-eco-600 uppercase tracking-wider">المنشآت الإنشائية والمائية</span>
-                        <h3 class="text-xl font-bold text-slate-900">القناطر وسحارات النقل الإنشائية</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            متابعة وتنفيذ المنشآت الخرسانية الثقيلة المتقاطعة مع الطرق أو المجاري المائية لتمرير التصرفات المطلوبة بكل أمان.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="h-48 bg-gradient-to-br from-emerald-600 to-eco-800 flex items-center justify-center p-6 text-white relative">
-                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]"></div>
-                        <i class="fa-solid fa-cloud-sun-rain text-5xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-bold text-eco-600 uppercase tracking-wider">التكيف المناخي</span>
-                        <h3 class="text-xl font-bold text-slate-900">مشروعات الحماية والحصاد المائي</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            إدارة وتطوير منشآت الحماية من السيول وحصاد مياه الأمطار لتعظيم المخزون المائي وتوفير حلول آمنة للبيئة.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <!-- FOOTER -->
+        <div class="bg-slate-50 border-t border-slate-200 px-6 sm:px-10 py-4 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+            <span>Eng. Waleed Mahmoud Abdelrahman — Official Professional CV</span>
+            <span>Ministry of Water Resources & Irrigation | Aswan / Luxor, Egypt</span>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Info -->
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-eco-600 font-bold uppercase tracking-wider text-sm">تواصل رسمي ومهني</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900">تواصل مع المهندس وليد محمود عبدالرحمن</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        أرحب بالاستفسارات والتواصل المهني المتعلق بإدارة مشروعات الموارد المائية والري والاستدامة الإنشائية والتكيف المناخي.
-                    </p>
-
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-                            <div class="w-12 h-12 rounded-xl bg-eco-100 text-eco-700 flex items-center justify-center text-lg font-bold">
-                                <i class="fa-solid fa-building"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-500 font-semibold">جهة العمل</span>
-                                <span class="font-bold text-slate-800">وزارة الموارد المائية والري - قطاع التوسع الأفقي والمشروعات</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-                            <div class="w-12 h-12 rounded-xl bg-eco-100 text-eco-700 flex items-center justify-center text-lg font-bold">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-500 font-semibold">البريد الإلكتروني</span>
-                                <a href="mailto:waleed.mahmoud@example.com" class="font-bold text-slate-800 hover:text-eco-600 transition-colors">waleed.mahmoud@example.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-                            <div class="w-12 h-12 rounded-xl bg-eco-100 text-eco-700 flex items-center justify-center text-lg font-bold">
-                                <i class="fa-brands fa-github"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-500 font-semibold">جيت هب (GitHub)</span>
-                                <a href="https://github.com" target="_blank" class="font-bold text-slate-800 hover:text-eco-600 transition-colors">github.com/waleed-mahmoud</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Form -->
-                <div class="lg:col-span-7">
-                    <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6">أرسل رسالة</h3>
-                        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">الاسم الكريم</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-eco-600 focus:outline-none transition-colors" placeholder="ادخل اسمك...">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">البريد الإلكتروني</label>
-                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-eco-600 focus:outline-none transition-colors" placeholder="name@example.com">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">نص الرسالة</label>
-                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-eco-600 focus:outline-none transition-colors" placeholder="اكتب استفسارك أو رسالتك هنا..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-4 rounded-xl bg-eco-600 text-white font-bold shadow-lg shadow-eco-600/30 hover:bg-eco-700 transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>إرسال الرسالة</span>
-                            </button>
-                        </form>
-                        <div id="success-box" class="hidden mt-4 p-4 rounded-xl bg-eco-100 text-eco-800 font-bold text-center border border-eco-200">
-                            تم إرسال رسالتك بنجاح! سيتم التواصل معك قريباً.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <div class="flex items-center justify-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-eco-600 flex items-center justify-center text-white">
-                    <i class="fa-solid fa-water"></i>
-                </div>
-                <span class="font-black text-lg">م. وليد محمود عبدالرحمن</span>
-            </div>
-            <p class="text-slate-400 text-sm max-w-lg mx-auto">
-                مدير أعمال بقطاع التوسع الأفقي والمشروعات | وزارة الموارد المائية والري | هندسة مدنية وإنشائية واستدامة مائية.
-            </p>
-            <div class="flex justify-center gap-4 pt-2 text-slate-400">
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-eco-600 hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-eco-600 hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
-            </div>
-            <p class="text-xs text-slate-500 pt-6 border-t border-slate-800">
-                &copy; 2026 م. وليد محمود عبدالرحمن - وزارة الموارد المائية والري. جميع الحقوق محفوظة.
-            </p>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Menu & Form Submission -->
+    <!-- JavaScript for CV Tab Switching & Live Personal Photo Preview -->
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        function switchCvTab(tabId) {
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            const activePanel = document.getElementById('panel-' + tabId);
+            if (activePanel) {
+                activePanel.classList.remove('hidden');
+            }
+            document.querySelectorAll('.cv-tab-btn').forEach(btn => {
+                btn.className = "cv-tab-btn px-4 py-3 text-xs sm:text-sm font-semibold rounded-t-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 flex items-center gap-2 transition-all";
+            });
+            const activeBtn = document.getElementById('tab-btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "cv-tab-btn px-4 py-3 text-xs sm:text-sm font-bold rounded-t-xl border-t-2 border-x border-transparent bg-white text-water-700 border-water-600 shadow-sm flex items-center gap-2 transition-all";
+            }
+        }
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Form Submit Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const successBox = document.getElementById('success-box');
-            successBox.classList.remove('hidden');
-            event.target.reset();
-            setTimeout(() => {
-                successBox.classList.add('hidden');
-            }, 5000);
+        function previewProfileImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-photo-img').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 </body>
